@@ -1,0 +1,45 @@
+html {
+    background-color: $navy;
+    color: $white;
+
+    header {
+        background-color: $darkNavy;
+    }
+
+    .h1, .h2 {
+        font-weight: 200;
+    }
+
+    a {
+        color: $pink;
+
+        &:hover, &:focus {
+            color: $orange;
+        }
+    }
+
+    #portfolio {
+        background-color: $white;
+        color: $navy;
+    }
+    #landing {
+        background-color: $darkNavy;
+    }
+    .intro, .about {
+        position: relative;
+        z-index: 10;
+    }
+    .intro {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .about {
+        background-color: $darkNavy;
+        padding: 30px;
+    }
+
+
+
+}
