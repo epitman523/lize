@@ -2,10 +2,6 @@ html {
     background-color: $navy;
     color: $white;
 
-    header {
-        background-color: $darkNavy;
-    }
-
     .h1, .h2 {
         font-weight: 200;
     }
@@ -23,9 +19,14 @@ html {
         color: $navy;
     }
     #landing {
-        background-color: $darkNavy;
+        background-color: $purple;
+
+        & > .container {
+            position: relative;
+            z-index: 1;
+        }
     }
-    .intro, .about {
+    #portfolio {
         position: relative;
         z-index: 10;
     }
@@ -41,5 +42,122 @@ html {
     }
 
 
+    //------------------------------//
+    // Main Menu - Styles / Animation
+    //------------------------------//
+    .header__nav > ul {
+        display: none;
+    }
+    #header__btn--toggle {
+        display: inline-block;
+        cursor: pointer;
+        position: fixed;
+        z-index: 900;
+        right: 30px;
+        top: 30px;
+        width: 70px;
+        height: 70px;
+        border: none;
+        border-radius: 50%;
+        padding: 0;
+        background: transparent;
+        border: 2px solid $white;
+        box-shadow: 0px 4px 24px rgba($darkNavy, 0.24);
+        line-height: 0.6;
+        text-align: center;
+        transition: all 0.3s;
 
+        > span {
+            // the second divider
+            display: inline-block;
+            position: relative;
+            height: 2px;
+            width: 34px;
+            border-radius: 1px;
+            background: $white;
+            vertical-align: middle;
+            
+            // the first & the third dividers
+            &:before, &:after {
+              display: inline-block;
+                position: absolute;
+                content: "";
+                height: 2px;
+                border-radius: 1px;
+                background: $white;
+                // for the hover state
+                transition: all 200ms;
+            }
+            &:before {
+              top: -11px;
+                left: 3px;
+                width: 28px;
+            }
+            &:after {
+              top: 11px;
+                left: 6px;
+                width: 22px;
+            }
+        }
+
+        &:hover, &:focus {
+            border: 2px solid $orange;
+        }
+	
+        &:hover > span:after, &:hover > span:before {
+            width: 34px;
+            left: 0;
+        }
+    }
+    .header__nav:before {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        content: '';
+        width: 100vw;
+        height: 100vh;
+        background: rgba($darkNavy, 0.5);
+        transition: all 500ms ease-in-out;
+        z-index: 2;
+            
+        clip-path: circle(30px at calc(100% - 65px) 65px);
+        // for AT
+        visibility: hidden;
+    }
+
+    .header__menu.active {
+        .header__nav:before {
+            visibility: visible;
+            clip-path: circle(100%);
+        }
+        #header__btn--toggle {
+            & > span {
+                height: 0;
+            &:after, &:before {
+            top: 0px;
+                left: 0;
+                width: 34px;
+            }
+            &:after {
+                transform: rotate(-45deg);
+            }
+            &:before {
+                transform: rotate(45deg);
+            }
+            }
+        }
+        .header__nav > ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right:0;
+            z-index: 2;
+        }
+    }
 }

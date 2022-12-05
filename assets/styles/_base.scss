@@ -21,6 +21,12 @@ html {
             }
         }
 
+        ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
         .container {
             max-width: $bodyMaxWidth;
             margin: 0 auto;
