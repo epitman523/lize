@@ -27,6 +27,15 @@ html {
             display: flex;
         }
 
+        a {
+            &.dark {
+                @include transition(all, 500ms, ease-in-out);
+            }
+            &.light {
+                @include transition(all, 500ms, ease-in-out);
+            }
+        }
+
         .container {
             max-width: $bodyMaxWidth;
             margin: 0 auto;
@@ -34,6 +43,7 @@ html {
         }
 
         .h1 {
+            font-family: 'Satisfy', cursive;
             font-size: 4.8rem;
 
             @include media('>desktop') {
@@ -42,6 +52,7 @@ html {
         }
         .h2 {
             font-size: 4rem;
+            font-family: 'Satisfy', cursive;
 
             @include media('>desktop') {
                 font-size: 8rem

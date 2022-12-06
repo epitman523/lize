@@ -2,69 +2,98 @@ html {
     background-color: $navy;
     color: $white;
 
-    .h1, .h2 {
-        font-weight: 200;
+    body .h1 {
+        font-size: 10rem;
     }
-
     a {
-        color: $pink;
-
-        &:hover, &:focus {
-            color: $orange;
-        }
-    }
-
-    #portfolio {
-        background-color: $white;
-        color: $navy;
-    }
-    #landing {
-        background-color: $purple;
-
-        & > .container {
+        &.dark {
+            color: $navy;
             position: relative;
-            z-index: 1;
+
+            &::before {
+                content: ' ';
+                @include absolute(block, 100%, 2px, auto);
+                bottom: 0px;
+                z-index: -1;
+                background-color: $pink;
+                opacity: 0.7;
+                @include transition(all, 500ms, ease-in-out);
+            }
+            
+            &:hover, &:focus {
+                color: $navy;
+                
+                &::before {
+                    background-color: $orange;
+                }
+            }
+        }
+        &.light {
+            color: $white;
+            position: relative;
+
+            &::before {
+                content: ' ';
+                @include absolute(block, 100%, 2px, auto);
+                bottom: 0px;
+                z-index: -1;
+                background-color: $pink;
+                opacity: 0.7;
+                @include transition(all, 500ms, ease-in-out);
+            }
+            
+            &:hover, &:focus {
+                color: $white;
+                
+                &::before {
+                    background-color: $orange;
+                    height: 30px;
+                }
+            }
         }
     }
-    #portfolio {
-        position: relative;
-        z-index: 10;
-    }
-    .intro {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .about {
-        background-color: $darkNavy;
-        padding: 30px;
-    }
 
-
+    
+    
     //------------------------------//
     // Main Menu - Styles / Animation
     //------------------------------//
     .header__nav > ul {
-        display: none;
+        position: absolute;
+        left: 10%;
+        width: 80%;
+        height: 100vh;
+        margin: 0 auto;
+        @include flex(column, flex-start, center);
+        visibility: hidden;
+        opacity: 0;
+        z-index: -1;
+        @include transition(all, 500ms, ease-in-out);
+
+        li a.light {
+            font-size: 6rem;
+            font-weight: 200;
+            text-decoration: none;
+        }
     }
     #header__btn--toggle {
         display: inline-block;
         cursor: pointer;
         position: fixed;
         z-index: 900;
-        right: 30px;
-        top: 30px;
-        width: 70px;
-        height: 70px;
+        right: 20px;
+        top: 20px;
+        width: 50px;
+        height: 50px;
         border: none;
         border-radius: 50%;
         padding: 0;
-        background: transparent;
+        background: $darkNavy;
         border: 2px solid $white;
         box-shadow: 0px 4px 24px rgba($darkNavy, 0.24);
         line-height: 0.6;
         text-align: center;
+        opacity: 0.5;
         transition: all 0.3s;
 
         > span {
@@ -72,10 +101,11 @@ html {
             display: inline-block;
             position: relative;
             height: 2px;
-            width: 34px;
+            width: 24px;
             border-radius: 1px;
             background: $white;
             vertical-align: middle;
+            margin-top: -2px;
             
             // the first & the third dividers
             &:before, &:after {
@@ -89,23 +119,24 @@ html {
                 transition: all 200ms;
             }
             &:before {
-              top: -11px;
+              top: -9px;
                 left: 3px;
-                width: 28px;
+                width: 18px;
             }
             &:after {
-              top: 11px;
-                left: 6px;
-                width: 22px;
+              top: 9px;
+                left: 3px;
+                width: 18px;
             }
         }
 
         &:hover, &:focus {
+            opacity: 1;
             border: 2px solid $orange;
         }
 	
         &:hover > span:after, &:hover > span:before {
-            width: 34px;
+            width: 24px;
             left: 0;
         }
     }
@@ -117,11 +148,10 @@ html {
         content: '';
         width: 100vw;
         height: 100vh;
-        background: rgba($darkNavy, 0.5);
+        background: rgba($darkNavy, 1);
         transition: all 500ms ease-in-out;
-        z-index: 2;
-            
-        clip-path: circle(30px at calc(100% - 65px) 65px);
+        z-index: 2; 
+        clip-path: circle(20px at calc(100% - 40px) 40px);
         // for AT
         visibility: hidden;
     }
@@ -135,9 +165,9 @@ html {
             & > span {
                 height: 0;
             &:after, &:before {
-            top: 0px;
+                top: -2px;
                 left: 0;
-                width: 34px;
+                width: 24px;
             }
             &:after {
                 transform: rotate(-45deg);
@@ -148,16 +178,105 @@ html {
             }
         }
         .header__nav > ul {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right:0;
+            visibility: visible;
+            opacity: 1;
             z-index: 2;
         }
     }
+
+
+    //------------------------------//
+    // Landing - Styles / Animation
+    //------------------------------//
+    #landing {
+        background-color: $purple;
+
+        & > .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .intro {
+            height: 100vh;
+            @include flex(column, flex-start, center);
+        }
+        .about {
+            background-color: rgba($darkNavy, 0.4);
+            padding: 30px;
+        }
+    }
+
+
+    //------------------------------//
+    // Portfolio - Styles / Animation
+    //------------------------------//
+    #portfolio {
+        background-color: $white;
+        color: $navy;
+        position: relative;
+        z-index: 10;
+
+        .container {
+            @include flex(row, stretch, flex-start);
+        }
+
+        nav ul {
+            @include flex(column, flex-start, center);
+            margin-right: 15px;
+
+            li {
+                a.dark {
+                    text-decoration: none;
+                    font-size: 3rem;
+
+                    &:hover, &:focus {
+                        &::before {
+                            height: 15px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .portfolio__showcase {
+            width: 100%;
+            position: relative;
+            @include flex();
+            
+            @include media('>desktop') {
+                min-height: 500px;
+            }
+
+            #portfolio {
+                &__development {
+                    @include absolute();
+                    background-color: $pink;
+                    padding: 15px;
+
+                    & > li {
+                        background-color: $white;
+                    }
+                }
+                &__design {
+                    @include absolute();
+                    background-color: $purple;
+                    padding: 15px;
+
+                    & > li {
+                        background-color: $white;
+                    }
+                }
+                &__illustration {
+                    @include absolute();
+                    background-color: $yellow;
+                    padding: 15px;
+
+                    & > li {
+                        background-color: $white;
+                    }
+                }
+            }
+        }
+    }
+
 }

@@ -1,0 +1,20 @@
+@mixin transition($for: all, $duration: 250ms, $type: ease-in-out, $delay: 0s) {
+    transition: $for $duration $type $delay;
+    -moz-transition: $for $duration $type $delay;
+    -webkit-transition: $for $duration $type $delay;
+    -o-transition: $for $duration $type $delay;
+}
+@mixin flex($direction: column, $align: center, $justify: center) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+@mixin absolute($display: block, $width: 100%, $height: 100%, $top: 0, $left: 0) {
+    position: absolute;
+    display: $display;
+    width: $width;
+    height: $height;
+    top: $top;
+    left: $left;
+}
