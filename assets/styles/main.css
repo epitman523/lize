@@ -224,6 +224,11 @@ html {
 html body .h1 {
   font-size: 10rem;
 }
+html a {
+  padding: 0 4px;
+  font-weight: 200;
+  text-decoration: none;
+}
 html a.dark {
   color: #122348;
   position: relative;
@@ -240,16 +245,17 @@ html a.dark::before {
   z-index: -1;
   background-color: #ff554f;
   opacity: 0.7;
-  transition: all 500ms ease-in-out 0s;
-  -moz-transition: all 500ms ease-in-out 0s;
-  -webkit-transition: all 500ms ease-in-out 0s;
-  -o-transition: all 500ms ease-in-out 0s;
+  transition: all 300ms ease-in-out 0s;
+  -moz-transition: all 300ms ease-in-out 0s;
+  -webkit-transition: all 300ms ease-in-out 0s;
+  -o-transition: all 300ms ease-in-out 0s;
 }
 html a.dark:hover, html a.dark:focus {
   color: #122348;
 }
 html a.dark:hover::before, html a.dark:focus::before {
   background-color: #ff9153;
+  height: 15px;
 }
 html a.light {
   color: #fcfbf7;
@@ -299,14 +305,12 @@ html .header__nav > ul {
 }
 html .header__nav > ul li a.light {
   font-size: 6rem;
-  font-weight: 200;
-  text-decoration: none;
 }
 html #header__btn--toggle {
   display: inline-block;
   cursor: pointer;
   position: fixed;
-  z-index: 900;
+  z-index: 11;
   right: 20px;
   top: 20px;
   width: 50px;
@@ -418,20 +422,14 @@ html #portfolio {
   background-color: #fcfbf7;
   color: #122348;
   position: relative;
-  z-index: 10;
-}
-html #portfolio .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  z-index: 8;
 }
 @media (min-width: 1025px) {
   html #portfolio .container {
     display: flex;
     flex-direction: row;
-    align-items: stretch;
-    justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: space-between;
   }
 }
 html #portfolio nav ul {
@@ -439,7 +437,8 @@ html #portfolio nav ul {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin-right: 15px;
+  margin-right: 45px;
+  margin-bottom: 5vh;
 }
 html #portfolio nav ul li a.dark {
   text-decoration: none;
@@ -450,46 +449,25 @@ html #portfolio nav ul li a.dark:hover::before, html #portfolio nav ul li a.dark
 }
 html #portfolio .portfolio__showcase {
   width: 100%;
+  min-height: 400px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-html #portfolio .portfolio__showcase #portfolio__development {
+@media (min-width: 1025px) {
+  html #portfolio .portfolio__showcase {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+html #portfolio .portfolio__showcase > ul {
   position: absolute;
   display: block;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
-  background-color: #ff554f;
-  padding: 15px;
-}
-html #portfolio .portfolio__showcase #portfolio__development > li {
-  background-color: #fcfbf7;
-}
-html #portfolio .portfolio__showcase #portfolio__design {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: #433554;
-  padding: 15px;
-}
-html #portfolio .portfolio__showcase #portfolio__design > li {
-  background-color: #fcfbf7;
-}
-html #portfolio .portfolio__showcase #portfolio__illustration {
-  position: absolute;
-  display: block;
-  width: 100%;
+  width: initial;
   height: 100%;
   top: 0;
   left: 0;
@@ -497,18 +475,30 @@ html #portfolio .portfolio__showcase #portfolio__illustration {
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  background-color: #ffdf71;
-  min-height: 300px;
-  padding: 15px;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
 }
-html #portfolio .portfolio__showcase #portfolio__illustration > li {
+html #portfolio .portfolio__showcase > ul > li {
   background-color: #fcfbf7;
   width: 100%;
   height: 33.3333%;
   margin-bottom: 20px;
 }
-html #portfolio .portfolio__showcase #portfolio__illustration > li:last-child {
+html #portfolio .portfolio__showcase > ul > li:last-child {
   margin-bottom: 0;
+}
+html #portfolio .portfolio__showcase #portfolio__development {
+  background-color: #ff554f;
+}
+html #portfolio .portfolio__showcase #portfolio__design {
+  background-color: #433554;
+}
+html #portfolio .portfolio__showcase #portfolio__design > li {
+  background-color: #fcfbf7;
+}
+html #portfolio .portfolio__showcase #portfolio__illustration {
+  background-color: #ffdf71;
 }
 
 /*# sourceMappingURL=main.css.map */

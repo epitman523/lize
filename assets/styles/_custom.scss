@@ -6,6 +6,10 @@ html {
         font-size: 10rem;
     }
     a {
+        padding: 0 4px;
+        font-weight: 200;
+        text-decoration: none;
+
         &.dark {
             color: $navy;
             position: relative;
@@ -17,7 +21,7 @@ html {
                 z-index: -1;
                 background-color: $pink;
                 opacity: 0.7;
-                @include transition(all, 500ms, ease-in-out);
+                @include transition(all, 300ms, ease-in-out);
             }
             
             &:hover, &:focus {
@@ -25,6 +29,7 @@ html {
                 
                 &::before {
                     background-color: $orange;
+                    height: 15px;
                 }
             }
         }
@@ -52,7 +57,6 @@ html {
             }
         }
     }
-
     
     
     //------------------------------//
@@ -72,15 +76,13 @@ html {
 
         li a.light {
             font-size: 6rem;
-            font-weight: 200;
-            text-decoration: none;
         }
     }
     #header__btn--toggle {
         display: inline-block;
         cursor: pointer;
         position: fixed;
-        z-index: 900;
+        z-index: 11;
         right: 20px;
         top: 20px;
         width: 50px;
@@ -214,19 +216,18 @@ html {
         background-color: $white;
         color: $navy;
         position: relative;
-        z-index: 10;
+        z-index: 8;
 
         .container {
-            @include flex(column, center, flex-start);
-
             @include media('>desktop') {
-                @include flex(row, stretch, flex-start);
+                @include flex(row, flex-start, space-between);
             }
         }
 
         nav ul {
             @include flex(column, flex-start, center);
-            margin-right: 15px;
+            margin-right: 45px;
+            margin-bottom: 5vh;
 
             li {
                 a.dark {
@@ -244,51 +245,54 @@ html {
 
         .portfolio__showcase {
             width: 100%;
+            min-height: 400px;
             position: relative;
             @include flex();
-            
+
             @include media('>desktop') {
+                @include flex(row, flex-start, space-between);
+            }
+            
+            & > ul {
+                @include absolute(block, initial);
+                @include flex(column, flex-start, space-between);
+                right: 0;
+                bottom: 0;
+                padding: 20px;
                 
+
+                & > li {
+                    background-color: $white;
+                    width: 100%;
+                    height: 33.3333%;
+                    margin-bottom: 20px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
             }
 
             #portfolio {
                 &__development {
-                    @include absolute();
-                    @include flex(column, stretch, center);
                     background-color: $pink;
-                    padding: 15px;
 
                     & > li {
-                        background-color: $white;
-
+                        
                     }
                 }
                 &__design {
-                    @include absolute();
                     background-color: $purple;
-                    padding: 15px;
 
                     & > li {
                         background-color: $white;
                     }
                 }
                 &__illustration {
-                    @include absolute();
-                    @include flex(column, flex-start, space-between);
-
                     background-color: $yellow;
-                    min-height: 300px;
-                    padding: 15px;
-
+                    
                     & > li {
-                        background-color: $white;
-                        width: 100%;
-                        height: 33.3333%;
-                        margin-bottom: 20px;
 
-                        &:last-child {
-                            margin-bottom: 0;
-                        }
                     }
                 }
             }
