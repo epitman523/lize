@@ -1,13 +1,17 @@
 @import url('//fonts.googleapis.com/css2?family=Inter:wght@200;500;700;900&family=Satisfy&display=swap');
-
+* {
+    box-sizing: border-box;
+}
 html {
     font-family: $bodyFontFamily;
     font-size: 62.5%; // root fs: 10px
     font-weight: 500;
+    
 
     body {
         font-size: $bodyFontSize;
         line-height: $bodyLineHeight;
+        
 
         header {
             position: relative;

@@ -53,6 +53,10 @@ table {
   border-spacing: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-family: "Inter", sans-serif;
   font-size: 62.5%;
@@ -530,6 +534,9 @@ html #portfolio .portfolio__showcase > ul > li > a {
   padding: 0;
   position: relative;
 }
+html #portfolio .portfolio__showcase > ul > li > a.light::before {
+  z-index: initial;
+}
 html #portfolio .portfolio__showcase > ul > li > a img {
   display: block;
   position: absolute;
@@ -551,9 +558,9 @@ html #portfolio .portfolio__showcase .info {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background-color: #fcfbf7;
-  bottom: 0;
   padding: 10px;
+  position: absolute;
+  z-index: 2;
 }
 
 /*# sourceMappingURL=main.css.map */

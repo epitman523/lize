@@ -301,6 +301,10 @@ html {
                         padding: 0;
                         position: relative;
 
+                        &.light::before {
+                            z-index: initial;
+                        }
+
                         img {
                             display: block;
                             @include absolute();
@@ -336,9 +340,9 @@ html {
             .info {
                 @include flex(row, center, space-between);
                 width: 100%;
-                background-color: $white;
-                bottom: 0;
                 padding: 10px;
+                position: absolute;
+                z-index: 2;
             }
         }
     }
