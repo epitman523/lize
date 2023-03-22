@@ -66,6 +66,7 @@ html {
         }
         .h3 {
             font-size: 3.2rem;
+            font-family: 'Satisfy', cursive;
 
             @include media('>desktop') {
                 font-size: 5.4rem;

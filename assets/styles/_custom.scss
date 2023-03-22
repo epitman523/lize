@@ -2,7 +2,16 @@ html {
     background-color: $navy;
     color: $white;
 
-    body .h1 {
+    body {
+        overflow: auto;
+        @include transition(all, 500ms, ease-in-out);
+
+        &.noScroll {
+            overflow: hidden;
+        }
+    }
+
+    .h1 {
         font-size: 10rem;
     }
     a {
@@ -63,7 +72,7 @@ html {
     // Main Menu - Styles / Animation
     //------------------------------//
     .header__nav > ul {
-        position: absolute;
+        position: fixed;
         left: 10%;
         width: 80%;
         height: 100vh;
@@ -111,7 +120,7 @@ html {
             
             // the first & the third dividers
             &:before, &:after {
-              display: inline-block;
+                display: inline-block;
                 position: absolute;
                 content: "";
                 height: 2px;
@@ -121,12 +130,12 @@ html {
                 transition: all 200ms;
             }
             &:before {
-              top: -9px;
+                top: -9px;
                 left: 3px;
                 width: 18px;
             }
             &:after {
-              top: 9px;
+                top: 9px;
                 left: 3px;
                 width: 18px;
             }
@@ -200,11 +209,58 @@ html {
 
         .intro {
             height: 100vh;
-            @include flex(column, flex-start, center);
+            @include flex(column, center, center);
         }
         .about {
             background-color: rgba($darkNavy, 0.4);
             padding: 30px;
+            
+
+            @include flex(column, flex-start, center);
+
+            @include media('>desktop') {
+                @include flex(row-reverse, center, space-between);
+                margin-left: 25%;
+                padding: 60px;
+
+                h2 {
+                    padding-left: 60px;
+                }
+            }
+        }
+        .skills {
+            h3 {
+                text-align: center;
+                margin-bottom: 30px;
+                
+            }
+            .skills-row {
+                @include flex(column, flex-start, center);
+
+                @include media('>desktop') {
+                    @include flex(row, flex-start, flex-start);
+
+                    & > div {
+                        width: 33.3333%;
+                    }
+                }
+
+                
+                h4 {
+                    color: $orange;
+                    font-weight: 200;
+                    margin-bottom: 15px;
+                }
+                ul {
+                    @include flex(column, flex-start, center);
+
+                    li {
+                        margin-bottom: 30px;
+
+
+                    }
+                }
+            }
         }
     }
 

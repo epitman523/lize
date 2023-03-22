@@ -121,6 +121,7 @@ html body .h2 {
 }
 html body .h3 {
   font-size: 3.2rem;
+  font-family: "Satisfy", cursive;
 }
 @media (min-width: 1025px) {
   html body .h3 {
@@ -225,7 +226,17 @@ html {
   background-color: #122348;
   color: #fcfbf7;
 }
-html body .h1 {
+html body {
+  overflow: auto;
+  transition: all 500ms ease-in-out 0s;
+  -moz-transition: all 500ms ease-in-out 0s;
+  -webkit-transition: all 500ms ease-in-out 0s;
+  -o-transition: all 500ms ease-in-out 0s;
+}
+html body.noScroll {
+  overflow: hidden;
+}
+html .h1 {
   font-size: 10rem;
 }
 html a {
@@ -290,7 +301,7 @@ html a.light:hover::before, html a.light:focus::before {
   height: 30px;
 }
 html .header__nav > ul {
-  position: absolute;
+  position: fixed;
   left: 10%;
   width: 80%;
   height: 100vh;
@@ -415,12 +426,64 @@ html #landing .intro {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
 }
 html #landing .about {
   background-color: rgba(6, 24, 50, 0.4);
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+@media (min-width: 1025px) {
+  html #landing .about {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 25%;
+    padding: 60px;
+  }
+  html #landing .about h2 {
+    padding-left: 60px;
+  }
+}
+html #landing .skills h3 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+html #landing .skills .skills-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+@media (min-width: 1025px) {
+  html #landing .skills .skills-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  html #landing .skills .skills-row > div {
+    width: 33.3333%;
+  }
+}
+html #landing .skills .skills-row h4 {
+  color: #ff9153;
+  font-weight: 200;
+  margin-bottom: 15px;
+}
+html #landing .skills .skills-row ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+html #landing .skills .skills-row ul li {
+  margin-bottom: 30px;
 }
 html #portfolio {
   background-color: #fcfbf7;
