@@ -214,7 +214,7 @@ html {
         .about {
             background-color: rgba($darkNavy, 0.4);
             padding: 30px;
-            
+            margin-bottom: 120px;
 
             @include flex(column, flex-start, center);
 
@@ -236,27 +236,49 @@ html {
             }
             .skills-row {
                 @include flex(column, flex-start, center);
+                & > div {
+                    width: 100%;
+                    margin-bottom: 40px;
+                }
 
                 @include media('>desktop') {
-                    @include flex(row, flex-start, flex-start);
+                    @include flex(row, flex-start, space-between);
 
                     & > div {
-                        width: 33.3333%;
+                        width: calc(33.3333% - 30px);
                     }
                 }
 
                 
                 h4 {
-                    color: $orange;
-                    font-weight: 200;
-                    margin-bottom: 15px;
+                    margin-bottom: 20px;
+                    border-bottom: 2px solid $pink;
                 }
                 ul {
                     @include flex(column, flex-start, center);
 
                     li {
                         margin-bottom: 30px;
+                        position: relative;
+                        width: 100%;
+                        font-size: 1.6rem;
 
+                        &::before {
+                            content: " ";
+                            display: block;
+                            position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            height: 50%;
+                            background-color: $orange;
+                            opacity: 0.5;
+                            z-index: -1;
+                        }
+
+                        span {
+                            font-size: 2rem;
+                            font-weight: 500;
+                        }
 
                     }
                 }
