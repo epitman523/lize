@@ -83,8 +83,46 @@ html {
         z-index: -1;
         @include transition(all, 500ms, ease-in-out);
 
-        li a.light {
+        li a {
             font-size: 6rem;
+            display: block;
+        }
+
+        li:last-child ul {
+            margin-top: 30px;
+
+            li {
+                font-size: 0;
+                line-height: 0;
+                margin-right: 30px;
+                position: relative;
+                @include flex(row, flex-end, flex-start);
+                a {
+                    padding: 10px;
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    border: 2px solid $white;
+                    border-radius: 50%;
+                    opacity: 0.5;
+                    @include flex(column, center, center);
+
+                    &::before {
+                        content: none;
+                        
+                    }
+
+                    &:hover, &:focus {
+                        border: 2px solid $orange;
+                        opacity: 1;
+                    }
+
+                    svg {
+                        width: 100%;
+                        fill: $white;
+                    }
+                }
+            }
         }
     }
     #header__btn--toggle {
