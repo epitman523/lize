@@ -315,7 +315,7 @@ html {
             margin-bottom: 2vh;
 
             @include media('>desktop') {
-                height: 550px;
+                height: 400px;
                 margin-bottom: 0;
             }
 
@@ -343,48 +343,70 @@ html {
 
             @include media('>desktop') {
                 @include flex(row, flex-start, space-between);
-                height: 550px;
+                
             }
             
             & > ul {
-                @include absolute(block, initial);
                 @include flex(column, flex-start, space-between);
-                right: 0;
-                bottom: 0;
-                padding: 20px 0;
+                width: 100%;
                 
-                @include media('>desktop') {
+                @include media('>tablet') {
                     @include flex(row, stretch, space-between);
+                    flex-wrap: wrap;
                     padding: 0 20px;
                 }
 
                 & > li {
                     background-color: $navy;
                     width: 100%;
-                    height: 33.3333%;
+                    height: 100%;
                     margin-bottom: 20px;
                     box-shadow: 0px 5px 12px -4px $purple;
 
 
                     &:last-child {
-                        margin-bottom: 0;
+                        margin: 0 auto;
+                    }
+                    @include media('>tablet') {
+                        width: calc(50% - 15px);
+
+                        
                     }
 
                     @include media('>desktop') {
                         height: 100%;
                         width: calc(33.333% - 15px);
+                        &:last-child {
+                            margin: initial;
+                        }
                     }
 
                     & > a {
                         @include flex(column, center, flex-end);
-                        width: 100%;
-                        height: 100%;
+                        aspect-ratio: 4 / 3;
                         padding: 0;
                         position: relative;
-                        // border: 2px solid $pink;
+                        
+
+                        @include media('>desktop') {
+                            aspect-ratio: 9 / 20;
+                        }
+                        
 
                         &.light::before {
                             z-index: initial;
+                        }
+                        &::after {
+                            content: " ";
+                            display: block;
+                            position: absolute; 
+                            top: 0;
+                            right: 0;
+                            bottom: 0;
+                            left: 0;
+                            background-image: linear-gradient(180deg, #ff554f 10%, #ff9153 90%);
+                            opacity: 0.5;
+                            @include transition(opacity, 300ms, ease-in-out);
                         }
 
                         img {
@@ -394,6 +416,13 @@ html {
                             height: 100%;
                             object-fit: cover;
                         }
+
+                        &:hover, &:focus {
+                            &::after {
+                                opacity: 0;
+                            }
+                        }
+                        
                     }
                 }
             }
@@ -430,6 +459,11 @@ html {
                 z-index: 2;
                 background-color: $white;
                 font-weight: 500;
+                font-weight: 1.6rem;
+
+                p {
+                    padding-right: 5px;
+                }
             }
         }
     }

@@ -638,7 +638,7 @@ html #portfolio nav ul {
 }
 @media (min-width: 1025px) {
   html #portfolio nav ul {
-    height: 550px;
+    height: 400px;
     margin-bottom: 0;
   }
 }
@@ -664,47 +664,47 @@ html #portfolio .portfolio__showcase {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-    height: 550px;
   }
 }
 html #portfolio .portfolio__showcase > ul {
-  position: absolute;
-  display: block;
-  width: initial;
-  height: 100%;
-  top: 0;
-  left: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  right: 0;
-  bottom: 0;
-  padding: 20px 0;
+  width: 100%;
 }
-@media (min-width: 1025px) {
+@media (min-width: 769px) {
   html #portfolio .portfolio__showcase > ul {
     display: flex;
     flex-direction: row;
     align-items: stretch;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding: 0 20px;
   }
 }
 html #portfolio .portfolio__showcase > ul > li {
   background-color: #122348;
   width: 100%;
-  height: 33.3333%;
+  height: 100%;
   margin-bottom: 20px;
   box-shadow: 0px 5px 12px -4px #433554;
 }
 html #portfolio .portfolio__showcase > ul > li:last-child {
-  margin-bottom: 0;
+  margin: 0 auto;
+}
+@media (min-width: 769px) {
+  html #portfolio .portfolio__showcase > ul > li {
+    width: calc(50% - 15px);
+  }
 }
 @media (min-width: 1025px) {
   html #portfolio .portfolio__showcase > ul > li {
     height: 100%;
     width: calc(33.333% - 15px);
+  }
+  html #portfolio .portfolio__showcase > ul > li:last-child {
+    margin: initial;
   }
 }
 html #portfolio .portfolio__showcase > ul > li > a {
@@ -712,13 +712,32 @@ html #portfolio .portfolio__showcase > ul > li > a {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  width: 100%;
-  height: 100%;
+  aspect-ratio: 4/3;
   padding: 0;
   position: relative;
 }
+@media (min-width: 1025px) {
+  html #portfolio .portfolio__showcase > ul > li > a {
+    aspect-ratio: 9/20;
+  }
+}
 html #portfolio .portfolio__showcase > ul > li > a.light::before {
   z-index: initial;
+}
+html #portfolio .portfolio__showcase > ul > li > a::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(180deg, #ff554f 10%, #ff9153 90%);
+  opacity: 0.5;
+  transition: opacity 300ms ease-in-out 0s;
+  -moz-transition: opacity 300ms ease-in-out 0s;
+  -webkit-transition: opacity 300ms ease-in-out 0s;
+  -o-transition: opacity 300ms ease-in-out 0s;
 }
 html #portfolio .portfolio__showcase > ul > li > a img {
   display: block;
@@ -731,6 +750,9 @@ html #portfolio .portfolio__showcase > ul > li > a img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+html #portfolio .portfolio__showcase > ul > li > a:hover::after, html #portfolio .portfolio__showcase > ul > li > a:focus::after {
+  opacity: 0;
 }
 html #portfolio .portfolio__showcase #portfolio__design {
   display: none;
@@ -753,6 +775,10 @@ html #portfolio .portfolio__showcase .info {
   z-index: 2;
   background-color: #fcfbf7;
   font-weight: 500;
+  font-weight: 1.6rem;
+}
+html #portfolio .portfolio__showcase .info p {
+  padding-right: 5px;
 }
 
 /*# sourceMappingURL=main.css.map */
