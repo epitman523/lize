@@ -407,6 +407,61 @@ html a.light:hover::before, html a.light:focus::before {
   background-color: #ff9153;
   height: 30px;
 }
+html a.text__link--external {
+  font-weight: 500;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 3px;
+}
+html a.text__link--external::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  width: 0;
+  height: 2px;
+  background-color: #ff554f;
+  transition: width 300ms ease-in-out 0s;
+  -moz-transition: width 300ms ease-in-out 0s;
+  -webkit-transition: width 300ms ease-in-out 0s;
+  -o-transition: width 300ms ease-in-out 0s;
+}
+html a.text__link--external .box {
+  display: block;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #ff554f;
+  border-radius: 2px;
+  margin-left: 10px;
+}
+html a.text__link--external .box span.arrow {
+  color: #fcfbf7 !important;
+}
+html a.text__link--external .box::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  top: -3px;
+  right: -3px;
+  background-color: #433554;
+}
+html a.text__link--external .box .arrow {
+  display: block;
+  position: absolute;
+  transform: rotate(-45deg);
+  top: -12px;
+  right: -6px;
+  font-weight: 500;
+}
+html a.text__link--external:hover::before, html a.text__link--external:focus::before {
+  width: 100%;
+}
 html .header__nav > ul {
   position: fixed;
   left: 10%;
@@ -854,7 +909,7 @@ html .work__layout--1 .work__intro {
 @media (min-width: 1025px) {
   html .work__layout--1 .work__intro {
     width: calc(66.666% - 15px);
-    height: 100vh;
+    height: 900px;
   }
 }
 html .work__layout--1 .work__intro img {
@@ -868,14 +923,27 @@ html .work__layout--1 .work__intro .work__intro--d1 {
   aspect-ratio: 4/3;
   overflow: hidden;
 }
+html .work__layout--1 .work__intro .work__intro--d1::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(180deg, #ff554f 10%, #ff9153 90%);
+  opacity: 0.5;
+}
+html .work__layout--1 .work__intro .work__intro--d1 img {
+  width: 140%;
+}
 @media (min-width: 769px) {
   html .work__layout--1 .work__intro .work__intro--d1 {
     display: block;
     width: 33.3333%;
     position: absolute;
-  }
-  html .work__layout--1 .work__intro .work__intro--d1 img {
-    width: 125%;
   }
 }
 @media (min-width: 1025px) {
@@ -936,6 +1004,10 @@ html .work__layout--1 .work__intro .work__intro--info ul {
 html .work__layout--1 .work__intro .work__intro--info ul li {
   margin-bottom: 15px;
   font-size: 1.4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: first-baseline;
+  justify-content: flex-start;
 }
 html .work__layout--1 .work__intro .work__intro--info ul li:last-child {
   padding: 30px 0 0;
@@ -957,6 +1029,22 @@ html .work__layout--1 .work__about {
     width: calc(33.3333% - 15px);
   }
 }
+html .work__layout--1 .work__about .work__about--heading {
+  position: relative;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 2;
+}
+html .work__layout--1 .work__about .work__about--heading::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  height: 2px;
+  background-color: #ff554f;
+  z-index: -1;
+}
 html .work__layout--1 .work__about p {
   font-size: 20px;
   margin-bottom: 15px;
@@ -965,6 +1053,12 @@ html .work__layout--1 .work__about p {
   html .work__layout--1 .work__about p {
     font-size: 1.6rem;
   }
+}
+html #devObs {
+  background-image: radial-gradient(circle, #122348 0%, #061832 90%);
+}
+html #devObs .work__intro--d2 {
+  border: 1px solid #444;
 }
 
 /*# sourceMappingURL=main.css.map */

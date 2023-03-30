@@ -65,6 +65,65 @@ html {
                 }
             }
         }
+        &.text__link--external {
+            font-weight: 500;
+            position: relative;
+            @include flex(row, center, flex-start);
+            padding-bottom: 3px;
+
+            &::before {
+                content: ' ';
+                display: block;
+                position: absolute;
+                bottom: 0px;
+                width: 0;
+                height: 2px;
+                background-color: $pink;
+                @include transition(width, 300ms, ease-in-out);
+            }
+
+            .box {
+                display: block;
+                position: relative;
+                width: 10px;
+                height: 10px;
+                border: 2px solid $pink;
+                border-radius: 2px;
+                margin-left: 10px;
+                
+
+                span.arrow {
+                    color: $white !important;
+                }
+
+                &::before {
+                    content: ' ';
+                    display: block;
+                    position: absolute;
+                    width: 8px;
+                    height: 8px;
+                    top: -3px;
+                    right: -3px;
+                    background-color: $purple;
+
+                }
+
+                .arrow {
+                    display: block;
+                    position: absolute;
+                    transform: rotate(-45deg);
+                    top: -12px;
+                    right: -6px;
+                    font-weight: 500;
+                }
+            }
+
+            &:hover, &:focus {
+                &::before {
+                    width: 100%;
+                }
+            }
+        }
     }
     
     
@@ -528,7 +587,7 @@ html {
 
             @include media('>desktop') {
                 width: calc(66.666% - 15px);
-                height: 100vh;
+                height: 900px;
             }
 
             img {
@@ -542,15 +601,33 @@ html {
                 display: none;
                 aspect-ratio: 4 / 3;
                 overflow: hidden;
+                
+                
+
+                &::after {
+                    content: ' ';
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-image: linear-gradient(180deg, #ff554f 10%, #ff9153 90%);
+                    opacity: 0.5;
+                }
+
+                img {
+                    width: 140%;
+                }
 
                 @include media('>tablet') {    
                     display: block;
                     width: 33.3333%;
                     position: absolute;
 
-                    img {
-                        width: 125%;
-                    }
+                    
                 }
                 @include media('>desktop') {
                     left: 0;
@@ -604,16 +681,23 @@ html {
                     li {
                         margin-bottom: 15px;
                         font-size: 1.4rem;
+                        @include flex(row, first-baseline, flex-start);
 
                         &:last-child {
                             padding: 30px 0 0;
                             margin-bottom: 0;
                         }
 
+                        a {
+                            
+                        }
+
                         span {
                             font-weight: 500;
                             color: $orange;
                         }
+                        
+                        
                     }
                 }
             }
@@ -631,6 +715,24 @@ html {
                 width: calc(33.3333% - 15px);
             }
 
+            .work__about--heading {
+                position: relative;
+                margin-bottom: 30px;
+                position: relative;
+                z-index: 2;
+
+                &::before {
+                    content: ' ';
+                    display: block;
+                    position: absolute;
+                    bottom: 10px;
+                    width: 100%;
+                    height: 2px;
+                    background-color: $pink;
+                    z-index: -1;
+                }
+            }
+
             p {
                 font-size: 20px;
                 margin-bottom: 15px;
@@ -639,6 +741,16 @@ html {
                     font-size: 1.6rem;
                 }
             }
+        }
+    }
+
+    //------------------------//
+    // Work: Obsidian Custom
+    //------------------------//
+    #devObs {
+        background-image: radial-gradient(circle, #122348 0%, #061832 90%);
+        .work__intro--d2 {
+            border: 1px solid #444;
         }
     }
 } 
