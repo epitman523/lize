@@ -919,6 +919,9 @@ html .work__layout--1 .work__intro img {
 html .work__layout--1 .work__intro a {
   color: #fcfbf7;
 }
+html .work__layout--1 .work__intro .wrapper {
+  width: 100%;
+}
 html .work__layout--1 .work__intro .work__intro--d1 {
   display: none;
   aspect-ratio: 4/3;

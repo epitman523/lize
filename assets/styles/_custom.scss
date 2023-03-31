@@ -598,14 +598,21 @@ html {
             a {
                 color: $white;
             }
+            .wrapper {
+                width: 100%;
 
+                @include media('>tablet') {
+
+                }
+                @include media('>desktop') {
+
+                }
+            }
             .work__intro--d1 {
                 display: none;
                 aspect-ratio: 4 / 3;
                 overflow: hidden;
                 
-                
-
                 &::after {
                     content: ' ';
                     display: block;
