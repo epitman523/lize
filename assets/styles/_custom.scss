@@ -373,6 +373,27 @@ html {
                             z-index: -1;
                         }
 
+                        &.skill-20 {
+                            &::before {
+                                width: 20%;
+                            }
+                        }
+                        &.skill-40 {
+                            &::before {
+                                width: 40%;
+                            }
+                        }
+                        &.skill-60 {
+                            &::before {
+                                width: 60%;
+                            }
+                        }
+                        &.skill-80 {
+                            &::before {
+                                width: 80%;
+                            }
+                        }
+
                         span {
                             font-size: 2rem;
                             font-weight: 500;

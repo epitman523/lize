@@ -51,41 +51,48 @@
         <div class="container">
             <div class="intro">
                 <h1 class="h1">LizE</h1>
-                <p>Development / Design / Illustration</p>
+                <p>Development / Illustration</p>
             </div>
             <div class="about">
                 <h2 class="h2">About</h2>
-                <p>I like to approach web development from a human-centric, artist&apos;s point-of view. Formally trained as a graphic designer, I stumbled into coding while working my first career job. I realized that the approach I had taken with design, close attention to detail, alignment and hierarchy, worked well with front end development. It was satisfying to see the collection of words arranged in a certain way could produce a flexible and seemingly endless world of possibilities.<br /><br />
-                As I move through my career, I have found that I am most drawn to the front end aspects of development. I enjoy creating and maintaining clean, simple components that can be reused again with minimal effort.
-                I also enjoy working with accessibility in development and running audits on work to make sure as many people can access what I am developing. I look forward to expanding my skills and meeting new challenges along this path that I have chosen.</p>
+                <div>
+                    <p>I like to approach web development from a human-centric, artist&apos;s point-of view. Formally trained as a graphic designer, I stumbled into coding while working my first career job. I realized that the approach I had taken with design, close attention to detail, alignment and hierarchy, worked well with front end development. It was satisfying to see the collection of words arranged in a certain way could produce a flexible and seemingly endless world of possibilities.</p>
+                    <p>As I move through my career, I have found that I am most drawn to the front end aspects of development. I enjoy creating and maintaining clean, simple components that can be reused again with minimal effort. I also enjoy working with accessibility in development and running audits on work to make sure as many people can access what I am developing. I look forward to expanding my skills and meeting new challenges along this path that I have chosen.</p>
+                </div>
             </div>
             <div class="skills">
                 <h3 class="h3">Skills</h3>
                 <div class="skills-row">
                     <div class="skills-dev">
                         <h4 class="h4">Development</h4>
-                        <ul>
-                            <li>
-                                <p><span>HTML</span> (Twig / Handlebars)</p>
-                            </li>
-                            <li>
-                                <p><span>CSS</span> (LESS / SASS)</p>
-                            </li>
-                            <li>
-                                <p><span>JavaScript</span> (ES6 / jQuery)</p>
-                            </li>
-                            <li>
-                                <p><span>PHP</span> (WordPress)</p>
-                            </li>
-                            <li>
-                                <p><span>Responsive Development</span></p>
-                            </li>
-                            <li>
-                                <p><span>Accessibility</span> (Audit / Implementation)</p>
-                            </li>
-                        </ul>
+                        <div>
+                            <ul>
+                                <li>HTML</li>
+                                <li class="skill-80">Twig / Handlebars / YAML</li>
+                                <li>CSS</li>
+                                <li>SASS / LESS</li>
+                            </ul>
+                            <ul>
+                                <li class="skill-60">JavaScript</li>
+                                <li class="skill-80">jQuery</li>
+                                <li class="skill-60">PHP (for WordPress)</li>
+                                <li class="skill-80">WordPress</li>
+                            </ul>
+                            <ul>
+                                <li>ModX</li>
+                                <li class="skill-40">Drupal</li>
+                                <li class="skill-40">Adobe Experience Manager</li>
+                                <li class="skill-80">Git / GitHub / GitLab</li>
+                            </ul>
+                            <ul>
+                                <li>Responsive Development</li>
+                                <li class="skill-80">Cross-Browser Testing</li>
+                                <li class="skill-60">Accessibility Audit / Implementation</li>
+                                <li class="skill-80">Email Development</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="skills-des">
+                    <!-- <div class="skills-des">
                         <h4 class="h4">Design</h4>
                         <ul>
                             <li>
@@ -104,7 +111,7 @@
                                 <p><span>Iconography</span></p>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                     <div class="skills-ill">
                         <h4 class="h4">Illustration</h4>
                         <ul>
@@ -131,13 +138,10 @@
                     <h2 class="h2">Selected Work</h2>
                     <ul>
                         <li>
-                            <a class="dark" href="#">Development</a>
+                            <button id="toggle__development" type="button" class="dark">Development</button>
                         </li>
                         <li>
-                            <a class="dark" href="#">Design</a>
-                        </li>
-                        <li>
-                            <a class="dark" href="#">Illustration</a>
+                            <button id="toggle__illustration" type="button" class="dark">Illustration</button>
                         </li>
                     </ul>
                 </nav>
@@ -169,35 +173,6 @@
                                 <img class="coverImage-d" src="/assets/images/work/dev-congaree/congareeCover_d.png" alt="" />
                                 <span class="info">
                                     <p>Congaree Foundation</p>
-                                    <span class="btn-arrow">--></span>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul id="portfolio__design">
-                        <li>
-                            <a href="#">
-                                <img src="" alt="" />
-                                <span class="info">
-                                    <p>Title of the work</p>
-                                    <span class="btn-arrow">--></span>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="" alt="" />
-                                <span class="info">
-                                    <p>Title of the work</p>
-                                    <span class="btn-arrow">--></span>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="" alt="" />
-                                <span class="info">
-                                    <p>Title of the work</p>
                                     <span class="btn-arrow">--></span>
                                 </span>
                             </a>
@@ -241,7 +216,7 @@
                 <ul>
                     <li></li>
                     <li>
-                        <a herf="">Seeyah!</a>
+                        <a href="#">Seeyah!</a>
                     </li>
                 </ul>
             </div>
