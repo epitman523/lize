@@ -14,10 +14,13 @@ html {
     .h1 {
         font-size: 10rem;
     }
-    a {
+    a, button {
         padding: 0 4px;
         font-weight: 200;
         text-decoration: none;
+        outline: none;
+        background-color: transparent;
+        border: 0px;
 
         &.dark {
             color: $navy;
@@ -339,27 +342,26 @@ html {
                     margin-bottom: 40px;
                 }
 
-                @include media('>desktop') {
-                    @include flex(row, flex-start, space-between);
-
-                    & > div {
-                        width: calc(33.3333% - 30px);
-                    }
-                }
-
-                
+                // @include media('>desktop') {
+                //     @include flex(row, flex-start, space-between);
+                // }
                 h4 {
                     margin-bottom: 20px;
                     border-bottom: 2px solid $pink;
                 }
+
                 ul {
                     @include flex(column, flex-start, center);
+                    width: calc(25% - 30px);
+
+
 
                     li {
                         margin-bottom: 30px;
                         position: relative;
                         width: 100%;
-                        font-size: 1.6rem;
+                        font-size: 1.4rem;
+                        font-weight: 500;
 
                         &::before {
                             content: " ";
@@ -368,37 +370,123 @@ html {
                             bottom: 0;
                             width: 100%;
                             height: 50%;
-                            background-color: $orange;
+                            background-color: $darkNavy;
                             opacity: 0.5;
                             z-index: -1;
                         }
+                        
 
                         &.skill-20 {
-                            &::before {
-                                width: 20%;
+                            span {
+                                &::before {
+                                    width: 20%;
+                                }
                             }
+                            
                         }
                         &.skill-40 {
-                            &::before {
-                                width: 40%;
+                            span {
+                                &::before {
+                                    width: 40%;
+                                }
                             }
                         }
                         &.skill-60 {
-                            &::before {
-                                width: 60%;
+                            span {
+                                &::before {
+                                    width: 60%;
+                                }
                             }
                         }
                         &.skill-80 {
-                            &::before {
-                                width: 80%;
+                            span {
+                                &::before {
+                                    width: 80%;
+                                }
                             }
                         }
 
                         span {
-                            font-size: 2rem;
-                            font-weight: 500;
+                            display: block;
+                            width: 100%;
+                            padding-left: 15px;
+
+                            &::before {
+                                content: " ";
+                                display: block;
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 50%;
+                                background-color: $orange;
+                                opacity: 0.6;
+                                z-index: -1;
+                            }
+                            
                         }
 
+                    }
+                }
+                .scroll-wrapper {
+                    overflow-x: scroll;
+                    position: relative;
+                    border-right: 2px solid rgba($navy, 0.6);
+                    
+                    @include media('>tablet') {
+                        overflow-x: initial;
+                        border-right: 0px;
+                    }
+                    @include media('>desktop') {
+                        
+                    }
+
+                }
+                .wrapper {
+                    @include flex(row, center, space-between);
+                    width: 1200px;
+                    padding-right: 30px;
+
+                    @include media('>tablet') {
+                        width: 100%;
+                        padding-right: 0;
+                        
+                    }
+                    @include media('>desktop') {
+                        
+                    }
+                }
+                .skills-dev {
+                    @include media('>tablet') {
+                        .scroll-wrapper {
+                            .wrapper {
+                                flex-wrap: wrap;
+    
+                                ul {
+                                    width: calc(50% - 30px);
+                                }
+                            }
+                        }
+                    }
+                    @include media('>desktop') {
+                        .scroll-wrapper {
+                            .wrapper {
+                                flex-wrap: nowrap;
+
+                                ul {
+                                    width: calc(25% - 30px);
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+                .skills-ill ul {
+                    @include flex(row, center, space-between);
+                    width: 100%;
+
+                    li {
+                        width: calc(25% - 30px);
                     }
                 }
             }
@@ -439,26 +527,31 @@ html {
             }
 
             li {
-                
-                a.dark {
-                    text-decoration: none;
-                    font-size: 3rem;
+                margin-bottom: 20px;
 
-                    &:hover, &:focus {
-                        &::before {
-                            height: 15px;
+                button {
+                    
+                    &.dark {
+                        text-decoration: none;
+                        font-size: 3rem;
+    
+                        &:hover, &:focus {
+                            &::before {
+                                height: 15px;
+                            }
+                        }
+
+                        &:disabled {
+                            opacity: 0.5;
                         }
                     }
                 }
             }
-            
         }
 
         .portfolio__showcase {
             width: 100%;
-            min-height: 550px;
             position: relative;
-            @include flex();
 
             @include media('>desktop') {
                 @include flex(row, flex-start, space-between);
@@ -472,7 +565,11 @@ html {
                 @include media('>tablet') {
                     @include flex(row, stretch, space-between);
                     flex-wrap: wrap;
-                    padding: 0 20px;
+                    min-height: 675px;
+                    position: relative;
+                }
+                @include media('>desktop') {
+                    min-height: 615px;
                 }
 
                 & > li {
@@ -481,93 +578,75 @@ html {
                     height: 100%;
                     margin-bottom: 20px;
                     box-shadow: 0px 5px 12px -4px $purple;
-
-
-                    &:last-child {
-                        margin: 0 auto;
-                    }
-                    @include media('>tablet') {
-                        width: calc(50% - 15px);
-
+                    
+                    // Obsidian
+                    &:first-child {
+                        background-color: #000;
                         
+
+                        a {
+                            aspect-ratio: 4 / 3;
+
+                        }
+
+                        @include media('>tablet') {
+                            width: 50%;
+                        }
+                    }
+                    // UPenn
+                    &:nth-child(2) {
+                        a {
+                            aspect-ratio: 16/9;
+                        }
+
+                        @include media('>tablet') {
+                            position: absolute;
+                            width: 66.6666%;
+                            height: auto;
+                            bottom: 5%;
+                            right: 15%;
+                        }
                     }
 
-                    @include media('>desktop') {
-                        height: 100%;
-                        width: calc(33.333% - 15px);
-                        &:last-child {
-                            margin: initial;
+                    // Congaree
+                    &:last-child {
+                        background-color: $white;
+
+                        @include media('>tablet') {
+                            width: 33.3333%;
+                            height: auto;
+                            position: absolute;
+                            top: 5%;
+                            right: 10%;
+                        }
+
+                        @include  media('>desktop') {
+                            top: 8%;
+                        }
+
+                        a {
+                            aspect-ratio: 2 / 1;
+                            @include flex(column, center, center);
+                            padding: 60px 30px;
+
+                            @include media('>tablet') {
+                                aspect-ratio: 1 / 1;
+                            }
                         }
                     }
 
                     & > a {
-                        @include flex(column, center, flex-end);
-                        aspect-ratio: 4 / 3;
-                        padding: 0;
-                        position: relative;
-                        
-
-                        @include media('>desktop') {
-                            aspect-ratio: 9 / 20;
-                        }
-                        
-
-                        &.light::before {
-                            z-index: initial;
-                        }
-                        &::after {
-                            content: " ";
-                            display: block;
-                            position: absolute; 
-                            top: 0;
-                            right: 0;
-                            bottom: 0;
-                            left: 0;
-                            background-image: linear-gradient(180deg, #ff554f 10%, #ff9153 90%);
-                            opacity: 0.5;
-                            @include transition(opacity, 300ms, ease-in-out);
-                        }
+                        display: block;
 
                         img {
-                            display: block;
-                            @include absolute();
                             width: 100%;
-                            height: 100%;
-                            object-fit: cover;
                         }
-
-                        &:hover, &:focus {
-                            &::after {
-                                opacity: 0;
-                            }
-                        }
-                        
                     }
                 }
+
+
             }
 
-            #portfolio {
-                &__development {
-
-                    & > li {
-
-                    }
-                }
-                &__design {
-                    display: none;
-
-                    & > li {
-                        background-color: $white;
-                    }
-                }
-                &__illustration {
-                    display: none;
-
-                    & > li {
-
-                    }
-                }
-            }
 
             .info {
                 @include flex(row, center, space-between);
