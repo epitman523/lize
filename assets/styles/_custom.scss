@@ -673,6 +673,7 @@ html {
 
     .work {
         background-image: radial-gradient(circle, #122348 0%, #061832 90%);
+        min-height: 100vh;
     }
 
     // Layout-1 Styles //
@@ -681,7 +682,7 @@ html {
             @include flex(column, flex-start, center);
 
             @include media('>desktop') {
-                @include flex(row-re, flex-start, space-between);
+                @include flex(row, flex-start, space-between);
             }
         }
         

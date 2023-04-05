@@ -949,6 +949,7 @@ html #portfolio .portfolio__showcase .info p {
 }
 html .work {
   background-image: radial-gradient(circle, #122348 0%, #061832 90%);
+  min-height: 100vh;
 }
 html .work__layout--1 .container {
   display: flex;
@@ -959,7 +960,7 @@ html .work__layout--1 .container {
 @media (min-width: 1025px) {
   html .work__layout--1 .container {
     display: flex;
-    flex-direction: row-re;
+    flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
   }
